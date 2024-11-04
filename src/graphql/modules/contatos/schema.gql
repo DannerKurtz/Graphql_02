@@ -1,0 +1,24 @@
+# /modules/someModule/someSchema.gql
+
+type ContatoType {
+  id: Int
+  nome: String
+  email: String
+  telefone: String
+}
+
+input ContatoInput {
+  nome: String
+  email: String
+  telefone: String
+}
+
+type Query {
+  contatos: [ContatoType]
+}
+
+type Mutation {
+  createContato(data: ContatoInput!): ContatoType
+  updateContato(id: Int!, data: ContatoInput): ContatoType
+  deleteContato(id: Int, email: String): Boolean
+}
